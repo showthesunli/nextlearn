@@ -11,19 +11,40 @@
   </head>
   <body>
     <div id="app"></div>
+    <div id="app2"></div>
     <script type="text/jsx">
       const app = document.getElementById("app");
 
-      function Header(){
-        return <h1>Develop. Preview. Ship. </h1>
+      function createTitle(title){
+        if (title){
+          return title 
+        } else {
+          return 'Default title'
+        }
+      }
+
+      function Header({title}){
+        
+        return <h1>{title ? title : 'Default title'}</h1>
       }
 
       function HomePage(){
         return (<div>
-          <Header/>
+          <Header title="React ❤"/>
         </div>)
       }
+
+      function Page(){
+        return (
+          <div>
+            <Header />
+            <Header title="React 💛"/>
+            <Header title="new Titlle"/>
+          </div>
+        )
+      }
       ReactDOM.render(<HomePage />, app);
+      ReactDOM.render(<Page />, app2);
     </script>
   </body>
 </html>
