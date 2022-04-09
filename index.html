@@ -14,6 +14,7 @@
     <div id="app2"></div>
     <script type="text/jsx">
       const app = document.getElementById("app");
+      const app2 = document.getElementById("app2");
 
       function createTitle(title){
         if (title){
@@ -25,14 +26,22 @@
 
       function Header({title}){
         
-        return <h1>{title ? title : 'Default title'}</h1>
+        return <h1>{createTitle(title)}</h1>
       }
 
       function HomePage(){
+        const names = ['lee yang', 'bao wei hui', 'da bai tu']
+
         return (<div>
-          <Header title="React ❤"/>
+          <Header title="Developt. Preview. Ship. 😊"/>
+          <ul>
+            {names.map(name => <li key="{name}">{name}</li>)}
+          </ul>
         </div>)
       }
+
+      
+      ReactDOM.render(<HomePage />, app);
 
       function Page(){
         return (
@@ -43,7 +52,6 @@
           </div>
         )
       }
-      ReactDOM.render(<HomePage />, app);
       ReactDOM.render(<Page />, app2);
     </script>
   </body>
